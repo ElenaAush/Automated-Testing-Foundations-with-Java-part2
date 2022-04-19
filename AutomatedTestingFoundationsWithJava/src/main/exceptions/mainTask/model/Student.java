@@ -1,4 +1,4 @@
-package main.exceptions.mainTask.university;
+package main.exceptions.mainTask.model;
 
 import main.exceptions.mainTask.exception.LackOfSubjectForTheStudentException;
 
@@ -8,7 +8,6 @@ public class Student {
     
     private String nameStudent;
     private List<Subject> subjects;
-    
     
     public Student(String nameStudent, List<Subject> subjects) throws LackOfSubjectForTheStudentException {
         if (subjects == null || subjects.isEmpty()) {

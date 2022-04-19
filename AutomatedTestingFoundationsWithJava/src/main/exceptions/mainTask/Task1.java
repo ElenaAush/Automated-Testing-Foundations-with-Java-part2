@@ -1,16 +1,14 @@
 package main.exceptions.mainTask;
 
 import main.exceptions.mainTask.exception.*;
-import main.exceptions.mainTask.model.FacultyType;
-import main.exceptions.mainTask.model.SubjectType;
-import main.exceptions.mainTask.university.*;
+import main.exceptions.mainTask.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Task1 {
     
-    static University university;
+    private static University university;
     
     public static void main(String[] args) {
     
@@ -30,7 +28,7 @@ public class Task1 {
         }
     }
     
-    static boolean addData() {
+    private static boolean addData() {
         
         List<Subject> subjectsBiologicalWell;
         List<Subject> subjectsBiologicalBad;
@@ -78,7 +76,7 @@ public class Task1 {
         return true;
     }
     
-    static List<Subject> addSubjects(FacultyType facultyType, String string) throws IncorrectAssessmentException {
+    private static List<Subject> addSubjects(FacultyType facultyType, String string) throws IncorrectAssessmentException {
         
         List<Subject> subjects = new ArrayList<>();
         SubjectType[] subjectTypes = SubjectType.values();

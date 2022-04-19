@@ -1,7 +1,6 @@
-package main.exceptions.mainTask.university;
+package main.exceptions.mainTask.model;
 
 import main.exceptions.mainTask.exception.IncorrectAssessmentException;
-import main.exceptions.mainTask.model.SubjectType;
 
 public class Subject {
     

@@ -1,4 +1,4 @@
-package main.exceptions.mainTask.university;
+package main.exceptions.mainTask.model;
 
 import main.exceptions.mainTask.exception.AbsenceOfStudentsInTheGroupException;
 

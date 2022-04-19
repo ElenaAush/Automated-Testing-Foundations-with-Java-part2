@@ -1,9 +1,7 @@
-package main.exceptions.mainTask.university;
+package main.exceptions.mainTask.model;
 
 import main.exceptions.mainTask.action.CalculateTheAverageScoreForTheTask;
 import main.exceptions.mainTask.exception.LackOfFacultiesAtTheUniversityException;
-import main.exceptions.mainTask.model.FacultyType;
-import main.exceptions.mainTask.model.SubjectType;
 
 import java.util.List;
 

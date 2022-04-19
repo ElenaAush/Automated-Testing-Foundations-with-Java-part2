@@ -1,7 +1,6 @@
-package main.exceptions.mainTask.university;
+package main.exceptions.mainTask.model;
 
 import main.exceptions.mainTask.exception.AbsenceOfGroupsAtTheFacultyException;
-import main.exceptions.mainTask.model.FacultyType;
 
 import java.util.List;
 
