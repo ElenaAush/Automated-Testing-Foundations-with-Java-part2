@@ -15,7 +15,7 @@ public class Task3 {
                 bufferedWhiter.append("\n");
             }
         } catch (FileOrDirectoryException | IOException e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
         }
     }
     

@@ -5,7 +5,6 @@ import main.io.optionalTask.exception.FileOrDirectoryException;
 import java.io.*;
 
 public class Task7 {
-    
     private static final int MIN_LENGTH_WORD = 3;
     private static final int MAX_LENGTH_WORD = 5;
     
@@ -19,7 +18,7 @@ public class Task7 {
                 bufferedWriter.append("\n");
             }
         } catch (FileOrDirectoryException | IOException e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
         }
     }
     

@@ -19,24 +19,24 @@ public class FileCreator {
             isFolderCreated = true;
         }
         
-        if (isFolderCreated) {
-            if (!file.exists()) {
-                try {
-                    isFileCreated = file.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                isFileCreated = true;
-            }
-        } else {
+        if (!isFolderCreated) {
             throw new FileOrDirectoryException("no exist folder");
         }
         
-        if (isFileCreated) {
-            return file;
+        if (!file.exists()) {
+            try {
+                isFileCreated = file.createNewFile();
+            } catch (IOException e) {
+                throw new FileOrDirectoryException("no created file", e);
+            }
         } else {
+            isFileCreated = true;
+        }
+        
+        if (!isFileCreated) {
             throw new FileOrDirectoryException("no exist file");
         }
+        
+        return file;
     }
 }

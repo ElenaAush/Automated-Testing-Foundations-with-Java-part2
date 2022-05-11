@@ -10,7 +10,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Task1 {
-    
     private static List<String> data = new ArrayList<>();
     
     public static void main(String[] args) {
@@ -44,40 +43,27 @@ public class Task1 {
     
     private static void getFilesInAllDirectory(File file, int level) {
         StringBuilder indent = new StringBuilder();
-        String indentFolder = "";
+        StringBuilder indentDirectory = new StringBuilder();
         File[] inDirectory = file.listFiles();
         
-        if (inDirectory != null) {
-            sortedFilesAndDirectory(inDirectory);
-    
-            for (int i = 0; i < level; i++) {
-                indentFolder = indent + "|---";
-                indent.append("|   ");
+        if (inDirectory == null) {
+            return;
+        }
+        
+        sortedFilesAndDirectory(inDirectory);
+        
+        addIndents(indent, indentDirectory, level);
+        
+        for (File one : inDirectory) {
+            if (one.isFile()) {
+                data.add(indent + one.getName());
             }
-            
-            for (File one : inDirectory) {
-                if (one.isFile()) {
-                    data.add(indent + one.getName());
-                }
-                if (one.isDirectory()) {
-                    data.add(indent.toString());
-                    data.add(indentFolder + one.getName());
-                    getFilesInAllDirectory(one, level + 1);
-                }
+            if (one.isDirectory()) {
+                data.add(indent.toString());
+                data.add(indentDirectory + one.getName());
+                getFilesInAllDirectory(one, level + 1);
             }
         }
-    }
-    
-    private static void sortedFilesAndDirectory (File[] inDirectory) {
-        Arrays.sort(inDirectory, (o1, o2) -> {
-            if (o1.isFile() && o2.isDirectory()) {
-                return -1;
-            }
-            if (o2.isFile() && o1.isDirectory()) {
-                return 1;
-            }
-            return 0;
-        });
     }
     
     private static void getDataAboutDirectoriesAndFiles() {
@@ -112,6 +98,25 @@ public class Task1 {
         System.out.println("Files = " + countFiles);
         System.out.println("Average files = " + averageCountOfFilesInADirectory);
         System.out.println("Average length of file names = " + averageLengthOfFileNames);
+    }
+    
+    private static void sortedFilesAndDirectory(File[] inDirectory) {
+        Arrays.sort(inDirectory, (o1, o2) -> {
+            if (o1.isFile() && o2.isDirectory()) {
+                return -1;
+            }
+            if (o2.isFile() && o1.isDirectory()) {
+                return 1;
+            }
+            return 0;
+        });
+    }
+    
+    private static void addIndents(StringBuilder indent, StringBuilder indentDirectory, int level) {
+        for (int i = 0; i < level; i++) {
+            indentDirectory.append(indent).append("|---");
+            indent.append("|   ");
+        }
     }
     
     private static int getFileNameLength(Matcher matcher) {

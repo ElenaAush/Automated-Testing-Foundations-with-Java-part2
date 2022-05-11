@@ -7,7 +7,6 @@ import java.io.*;
 public class Task10 {
     
     public static void main(String[] args) {
-        
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("data/BelieverSong.txt"));
              BufferedWriter bufferedWhiter = new BufferedWriter(new FileWriter(FileCreator.createPath("ChangeFirstAndLastWordsInSong.txt")))) {
             String line;
@@ -16,7 +15,7 @@ public class Task10 {
                 bufferedWhiter.append("\n");
             }
         } catch (FileOrDirectoryException | IOException e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
         }
     }
     
