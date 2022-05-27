@@ -90,7 +90,10 @@ public class Participant implements Runnable {
             phaser.arriveAndAwaitAdvance();
             return;
         }
-        
+        getLotOrHavePunish();
+    }
+    
+    private void getLotOrHavePunish() throws InterruptedException {
         TimeUnit.MILLISECONDS.sleep(thinkOut(1000));
         if (auction.getLotForSale().peek() != null) {
             Lot lot = auction.getLotForSale().remove();

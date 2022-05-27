@@ -135,22 +135,27 @@ public class Auction extends Thread {
             lot.setPrice(newLotPrice);
             lotForSale.add(lot);
             System.out.println("waiting to pay...");
-            TimeUnit.MILLISECONDS.sleep(TIME_WAITING);
             
-            if (lotForSale.peek() == null) {
-                treasury += payment.exchange(null);
-                System.out.println("lot sold! (" + lot + " - " + nameWinner + ')');
-            } else {
-                lot = lotForSale.remove();
-                lot.setPrice(initialPrice);
-                lots.add(lot);
-                System.out.println(nameWinner + " didn't pay for lot");
-            }
+            sellOrReturnLot(lot, initialPrice);
             nameWinner = null;
         }
     
         newLotPrice = 0;
         onSale = false;
         phaser.arriveAndAwaitAdvance();
+    }
+    
+    private void sellOrReturnLot(Lot lot, int initialPrice) throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(TIME_WAITING);
+        
+        if (lotForSale.peek() == null) {
+            treasury += payment.exchange(null);
+            System.out.println("lot sold! (" + lot + " - " + nameWinner + ')');
+        } else {
+            lot = lotForSale.remove();
+            lot.setPrice(initialPrice);
+            lots.add(lot);
+            System.out.println(nameWinner + " didn't pay for lot");
+        }
     }
 }
