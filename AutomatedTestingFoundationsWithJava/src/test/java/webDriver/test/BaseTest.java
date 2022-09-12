@@ -2,8 +2,8 @@ package webDriver.test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import webDriver.page.AbstractPage;
 
 import java.time.Duration;
@@ -11,7 +11,7 @@ import java.time.Duration;
 public abstract class BaseTest {
     protected WebDriver driver;
     
-    @BeforeSuite
+    @BeforeClass
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -19,7 +19,7 @@ public abstract class BaseTest {
         AbstractPage.setDriver(driver);
     }
     
-    @AfterSuite
+    @AfterClass(alwaysRun = true)
     public void cleanUp() {
         driver.quit();
     }

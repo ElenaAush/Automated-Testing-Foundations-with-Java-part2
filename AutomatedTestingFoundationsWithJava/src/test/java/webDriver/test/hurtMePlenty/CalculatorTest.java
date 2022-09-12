@@ -16,27 +16,27 @@ public class CalculatorTest extends BaseTest {
     }
     
     @Test(description = "checks if the region is contains \"Frankfurt\"")
-    public void region() {
+    public void checkRegion() {
         Assert.assertTrue(googleCloudWindow.getRegion().contains("Frankfurt"));
     }
     
     @Test(description = "check if the commitment term is contains \"1 Year\"")
-    public void commitmentTerm() {
+    public void checkCommitmentTerm() {
         Assert.assertTrue(googleCloudWindow.getCommitmentTerm().contains("1 Year"));
     }
     
     @Test(description = "check if the provisioning model is contains \"Regular\"")
-    public void provisioningModel() {
+    public void checkProvisioningModel() {
         Assert.assertTrue(googleCloudWindow.getProvisioningModel().contains("Regular"));
     }
     
     @Test(description = "check if the instance type is contains \"n1-standard-8\"")
-    public void instanceType() {
+    public void checkInstanceType() {
         Assert.assertTrue(googleCloudWindow.getInstanceType().contains("n1-standard-8"));
     }
     
     @Test(description = "check if the localSSD is contains \"2x375\"")
-    public void localSSD() {
+    public void checkLocalSSD() {
         Assert.assertTrue(googleCloudWindow.getLocalSSD().contains("2x375"));
     }
 }

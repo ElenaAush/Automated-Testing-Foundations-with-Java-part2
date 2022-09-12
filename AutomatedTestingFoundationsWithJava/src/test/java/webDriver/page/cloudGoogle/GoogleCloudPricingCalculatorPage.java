@@ -1,53 +1,54 @@
 package webDriver.page.cloudGoogle;
 
+import webDriver.page.AbstractPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import webDriver.page.AbstractPage;
 
 import java.time.Duration;
 import java.util.List;
 
 public class GoogleCloudPricingCalculatorPage extends AbstractPage {
     private static final By elementsInDropListLocator = By.xpath("//*[@class='md-select-menu-container md-active md-clickable']//*[@role='option']");
-    private static final By elementsInDropListDatacenterLocationLocator = By.xpath("//*[@id='select_container_123']//*[@role='option']");
+    private static final By elementsInDropListDatacenterLocationLocator
+            = By.xpath("//*[@class='md-select-menu-container cpc-region-select md-active md-clickable']//*[@role='option']");
     
     @FindBy(xpath = "//div[@title='Compute Engine'][1]")
     private WebElement computeEngineButton;
     
-    @FindBy(id = "input_89")
+    @FindBy(xpath = "//input[@ng-model='listingCtrl.computeServer.quantity']")
     private WebElement numberOfInstancesField;
     
-    @FindBy(xpath = "//*[@id='select_value_label_81']/span[2]")
+    @FindBy(xpath = "//md-select[@ng-model='listingCtrl.computeServer.os']//span[2]")
     private WebElement operationSystemDropList;
     
-    @FindBy(xpath = "//*[@id='select_value_label_82']/span[2]")
+    @FindBy(xpath = "//md-select[@ng-model='listingCtrl.computeServer.class']//span[2]")
     private WebElement provisioningModelDropList;
     
-    @FindBy(xpath = "//*[@id='select_value_label_84']/span[2]")
+    @FindBy(xpath = "//*[@ng-model='listingCtrl.computeServer.series']//span[2]")
     private WebElement seriesDropList;
     
-    @FindBy(xpath = "//*[@id='select_value_label_85']/span[2]")
+    @FindBy(xpath = "//*[@ng-model='listingCtrl.computeServer.instance']//span[2]")
     private WebElement machineTypeDropList;
     
     @FindBy(xpath = "(//md-checkbox[@aria-label='Add GPUs']/div)[1]")
     private WebElement CPUCheckbox;
     
-    @FindBy(id = "select_461")
+    @FindBy(xpath = "//*[@ng-model='listingCtrl.computeServer.gpuType']")
     private WebElement GPUTypeDropList;
     
-    @FindBy(id = "select_463")
+    @FindBy(xpath = "//*[@ng-model='listingCtrl.computeServer.gpuCount']")
     private WebElement numberOfGPUsDropList;
     
-    @FindBy(xpath = "//*[@id='select_value_label_417']/span[2]")
+    @FindBy(xpath = "//*[@ng-model='listingCtrl.computeServer.ssd']//span[2]")
     private WebElement localSSDDropList;
     
-    @FindBy(id = "select_value_label_87")
+    @FindBy(xpath = "//*[@ng-model='listingCtrl.computeServer.location']//span[2]")
     private WebElement datacenterLocationDropList;
     
-    @FindBy(id = "select_value_label_88")
+    @FindBy(xpath = "//*[@ng-model='listingCtrl.computeServer.cud']//span[2]")
     private WebElement committedUsageDropList;
     
     @FindBy(xpath = "(//button[@aria-label='Add to Estimate'])[1]")

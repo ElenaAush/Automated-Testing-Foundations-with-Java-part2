@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import webDriver.exception.NotFindElementInPageException;
 import webDriver.service.GoogleCloudService;
 import webDriver.service.Tabs;
 import webDriver.page.cloudGoogle.GoogleCloudEstimatePage;
@@ -19,11 +18,7 @@ public class CalculatorToEmailTest extends BaseTest {
     @BeforeClass
     public void setPropertiesForTabs() {
         Tabs.setDriver(driver);
-        try {
-            windowGoogleCloud = GoogleCloudService.getEstimatePage();
-        } catch (NotFindElementInPageException e) {
-            e.printStackTrace();
-        }
+        windowGoogleCloud = GoogleCloudService.getEstimatePage();
     }
     
     @Test(description = "open and enter calculator, open email in new window, sent results of calculator to email, " +
@@ -45,7 +40,7 @@ public class CalculatorToEmailTest extends BaseTest {
         Assert.assertTrue(costFromGoogle.contains(costFromEmail));
     }
     
-    @AfterClass(description = "close all tabs except one and drop properties for tabs")
+    @AfterClass(description = "close all tabs except one and drop properties for tabs", alwaysRun = true)
     public void closeAllTabs() {
         Tabs.closeAllTabsExceptOne();
         Tabs.dropDriver();
