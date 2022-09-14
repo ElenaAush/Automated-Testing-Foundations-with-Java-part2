@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test">
-    <test verbose="2" name="D:/Projects/Automated-Testing-Foundations-with-Java-part2/AutomatedTestingFoundationsWithJava">
+<suite name="All tests">
+    <test verbose="2" name="All tests">
         <classes>
             <class name="webDriver.test.iCanWinTest.SimplePasteTest"/>
             <class name="webDriver.test.bringItOnTest.CheckingAddNewPasteTest"/>
