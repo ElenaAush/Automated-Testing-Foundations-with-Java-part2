@@ -21,7 +21,6 @@ public class DataForCalculatorCreator {
                 TestDataReader.getTestData(TESTADTA_PROVISIONING_MODEL),
                 TestDataReader.getTestData(TESTDATA_SERIES),
                 TestDataReader.getTestData(TESTDATA_MACHINE_TYPE),
-                Boolean.parseBoolean(TestDataReader.getTestData(TESTDATA_IS_ADD_GPU)),
                 TestDataReader.getTestData(TESTDATA_GPU_TYPE),
                 Integer.parseInt(TestDataReader.getTestData(TESTDATA_NUMBER_OF_GPUS)),
                 TestDataReader.getTestData(TESTDATA_LOCAL_SSD),

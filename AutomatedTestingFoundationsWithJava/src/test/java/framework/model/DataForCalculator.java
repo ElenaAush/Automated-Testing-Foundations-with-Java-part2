@@ -8,7 +8,6 @@ public class DataForCalculator {
     private String provisioningModel;
     private String series;
     private String machineType;
-    private boolean isAddGPUs;
     private String GPUType;
     private int numberOfGPUs;
     private String localSSD;
@@ -16,13 +15,12 @@ public class DataForCalculator {
     private String committedUsage;
     
     public DataForCalculator(int numberOfInstances, String operationSystem, String provisioningModel, String series, String machineType,
-                             boolean isAddGPUs, String GPUType, int numberOfGPUs, String localSSD, String datacenterLocation, String committedUsage) {
+                             String GPUType, int numberOfGPUs, String localSSD, String datacenterLocation, String committedUsage) {
         this.numberOfInstances = numberOfInstances;
         this.operationSystem = operationSystem;
         this.provisioningModel = provisioningModel;
         this.series = series;
         this.machineType = machineType;
-        this.isAddGPUs = isAddGPUs;
         this.GPUType = GPUType;
         this.numberOfGPUs = numberOfGPUs;
         this.localSSD = localSSD;
@@ -68,14 +66,6 @@ public class DataForCalculator {
     
     public void setMachineType(String machineType) {
         this.machineType = machineType;
-    }
-    
-    public boolean isAddGPUs() {
-        return isAddGPUs;
-    }
-    
-    public void setAddGPUs(boolean addGPUs) {
-        isAddGPUs = addGPUs;
     }
     
     public String getGPUType() {
@@ -124,7 +114,6 @@ public class DataForCalculator {
         if (o == null || getClass() != o.getClass()) return false;
         DataForCalculator that = (DataForCalculator) o;
         return numberOfInstances == that.numberOfInstances
-                && isAddGPUs == that.isAddGPUs
                 && numberOfGPUs == that.numberOfGPUs
                 && Objects.equals(operationSystem, that.operationSystem)
                 && Objects.equals(provisioningModel, that.provisioningModel)
@@ -139,7 +128,7 @@ public class DataForCalculator {
     @Override
     public int hashCode() {
         return Objects.hash(numberOfInstances, operationSystem, provisioningModel, series, machineType,
-                isAddGPUs, GPUType, numberOfGPUs, localSSD, datacenterLocation, committedUsage);
+                GPUType, numberOfGPUs, localSSD, datacenterLocation, committedUsage);
     }
     
     @Override
@@ -150,7 +139,6 @@ public class DataForCalculator {
                 ", provisioningModel='" + provisioningModel + '\'' +
                 ", series='" + series + '\'' +
                 ", machineType='" + machineType + '\'' +
-                ", isAddGPUs=" + isAddGPUs +
                 ", GPUType='" + GPUType + '\'' +
                 ", numberOfGPUs=" + numberOfGPUs +
                 ", localSSD='" + localSSD + '\'' +
