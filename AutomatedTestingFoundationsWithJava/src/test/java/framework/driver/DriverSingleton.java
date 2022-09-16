@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.time.Duration;
 
 public class DriverSingleton {
-    protected static WebDriver driver;
+    private static WebDriver driver = null;
     private static final int TIME_LOAD = 15;
     
     private DriverSingleton() {}
