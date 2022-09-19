@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class GoogleCloudEmailPage extends AbstractPage {
+    
     private static final Logger log = LogManager.getRootLogger();
     
     @FindBy(xpath = "//*[@ng-model='emailQuote.user.email']")

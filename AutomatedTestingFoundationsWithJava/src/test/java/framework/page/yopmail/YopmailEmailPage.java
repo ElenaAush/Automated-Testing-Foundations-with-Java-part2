@@ -14,6 +14,7 @@ import framework.exception.NotFindElementInPageException;
 import java.time.Duration;
 
 public class YopmailEmailPage extends AbstractPage {
+    
     private static final Logger log = LogManager.getRootLogger();
     
     private static final String emailsFrameLocator = "ifinbox";

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class YopmailGeneratedEmailPage extends AbstractPage {
+    
     @FindBy(id = "egen")
     private WebElement email;
     

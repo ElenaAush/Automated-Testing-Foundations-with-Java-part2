@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class GoogleCloudEstimatePage extends AbstractPage {
+    
     @FindBy(xpath = "//h2/b")
     private WebElement totalCost;
     

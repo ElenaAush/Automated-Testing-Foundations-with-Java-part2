@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public abstract class AbstractPage {
+    
     protected static WebDriver driver;
     protected static final int DEFAULT_WAITING_TIME_SECONDS = 10;
     protected static final int NUMBER_OF_UPDATES = 5;

@@ -2,7 +2,8 @@ package framework.model;
 
 import java.util.Objects;
 
-public class DataForCalculator {
+public class VirtualMachine {
+    
     private int numberOfInstances;
     private String operationSystem;
     private String provisioningModel;
@@ -14,8 +15,8 @@ public class DataForCalculator {
     private String datacenterLocation;
     private String committedUsage;
     
-    public DataForCalculator(int numberOfInstances, String operationSystem, String provisioningModel, String series, String machineType,
-                             String GPUType, int numberOfGPUs, String localSSD, String datacenterLocation, String committedUsage) {
+    public VirtualMachine(int numberOfInstances, String operationSystem, String provisioningModel, String series, String machineType,
+                          String GPUType, int numberOfGPUs, String localSSD, String datacenterLocation, String committedUsage) {
         this.numberOfInstances = numberOfInstances;
         this.operationSystem = operationSystem;
         this.provisioningModel = provisioningModel;
@@ -112,7 +113,7 @@ public class DataForCalculator {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        DataForCalculator that = (DataForCalculator) o;
+        VirtualMachine that = (VirtualMachine) o;
         return numberOfInstances == that.numberOfInstances
                 && numberOfGPUs == that.numberOfGPUs
                 && Objects.equals(operationSystem, that.operationSystem)
@@ -133,7 +134,7 @@ public class DataForCalculator {
     
     @Override
     public String toString() {
-        return "DataForCalculator{" +
+        return "VirtualMachin{" +
                 "numberOfInstances=" + numberOfInstances +
                 ", operationSystem='" + operationSystem + '\'' +
                 ", provisioningModel='" + provisioningModel + '\'' +

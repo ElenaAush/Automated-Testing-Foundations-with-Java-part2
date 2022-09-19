@@ -1,4 +1,4 @@
-package framework.service;
+package framework.driver;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Tabs {
+    
     private static WebDriver driver;
     private static List<String> tabs;
     

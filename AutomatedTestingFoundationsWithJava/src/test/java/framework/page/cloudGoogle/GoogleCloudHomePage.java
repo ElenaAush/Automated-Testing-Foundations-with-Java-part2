@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class GoogleCloudHomePage extends AbstractPage {
+    
     @FindBy(xpath = "//div[@class='devsite-searchbox']")
     private WebElement searchButton;
     

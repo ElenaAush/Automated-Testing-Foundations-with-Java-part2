@@ -13,6 +13,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class GoogleCloudResultsSearchPage extends AbstractPage {
+    
     private static final Logger log = LogManager.getRootLogger();
     
     private final String requestName;
