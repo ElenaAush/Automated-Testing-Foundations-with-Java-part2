@@ -67,17 +67,17 @@ public class GoogleCloudPricingCalculatorPage extends AbstractPage {
     }
     
     public GoogleCloudPricingCalculatorPage enterDateToCalculator(VirtualMachine data) {
-        enterNumberOfInstances(data);
-        chooseOperationSystem(data);
-        chooseProvisionModel(data);
-        chooseSeries(data);
-        chooseMachineType(data);
-        addGPU(data);
-        chooseGPUType(data);
-        chooseNumberOfGPUs(data);
-        chooseLocalSSD(data);
-        chooseDatacenterLocation(data);
-        chooseCommittedUsage(data);
+        enterNumberOfInstances(String.valueOf(data.getNumberOfInstances()));
+        chooseOperationSystem(data.getOperationSystem());
+        chooseProvisionModel(data.getProvisioningModel());
+        chooseSeries(data.getSeries());
+        chooseMachineType(data.getMachineType());
+        addGPU();
+        chooseGPUType(data.getGPUType());
+        chooseNumberOfGPUs(String.valueOf(data.getNumberOfGPUs()));
+        chooseLocalSSD(data.getLocalSSD());
+        chooseDatacenterLocation(data.getDatacenterLocation());
+        chooseCommittedUsage(data.getCommittedUsage());
         return this;
     }
     
@@ -87,68 +87,68 @@ public class GoogleCloudPricingCalculatorPage extends AbstractPage {
         return new GoogleCloudEstimatePage();
     }
     
-    public GoogleCloudPricingCalculatorPage enterNumberOfInstances(VirtualMachine data) {
-        numberOfInstancesField.sendKeys(String.valueOf(data.getNumberOfInstances()));
+    public GoogleCloudPricingCalculatorPage enterNumberOfInstances(String numberOfInstances) {
+        numberOfInstancesField.sendKeys(numberOfInstances);
         return this;
     }
     
-    public GoogleCloudPricingCalculatorPage chooseOperationSystem(VirtualMachine data) {
+    public GoogleCloudPricingCalculatorPage chooseOperationSystem(String operationSystem) {
         this.operationSystemDropList.click();
-        clickOnElementFromDropList(data.getOperationSystem());
+        clickOnElementFromDropList(operationSystem);
         return this;
     }
     
-    public GoogleCloudPricingCalculatorPage chooseProvisionModel(VirtualMachine data) {
+    public GoogleCloudPricingCalculatorPage chooseProvisionModel(String provisioningModel) {
         this.provisioningModelDropList.click();
-        clickOnElementFromDropList(data.getProvisioningModel());
+        clickOnElementFromDropList(provisioningModel);
         return this;
     }
     
-    public GoogleCloudPricingCalculatorPage chooseSeries(VirtualMachine data) {
+    public GoogleCloudPricingCalculatorPage chooseSeries(String series) {
         this.seriesDropList.click();
-        clickOnElementFromDropList(data.getSeries());
+        clickOnElementFromDropList(series);
         return this;
     }
     
-    public GoogleCloudPricingCalculatorPage chooseMachineType(VirtualMachine data) {
+    public GoogleCloudPricingCalculatorPage chooseMachineType(String machineType) {
         this.machineTypeDropList.click();
-        clickOnElementFromDropList(data.getMachineType());
+        clickOnElementFromDropList(machineType);
         return this;
     }
     
-    public GoogleCloudPricingCalculatorPage addGPU(VirtualMachine data) {
+    public GoogleCloudPricingCalculatorPage addGPU() {
         if (!CPUCheckbox.isSelected()) {
             CPUCheckbox.click();
         }
         return this;
     }
     
-    public GoogleCloudPricingCalculatorPage chooseGPUType(VirtualMachine data) {
+    public GoogleCloudPricingCalculatorPage chooseGPUType(String GPUType) {
         this.GPUTypeDropList.click();
-        clickOnElementFromDropList(data.getGPUType());
+        clickOnElementFromDropList(GPUType);
         return this;
     }
     
-    public GoogleCloudPricingCalculatorPage chooseNumberOfGPUs(VirtualMachine data) {
+    public GoogleCloudPricingCalculatorPage chooseNumberOfGPUs(String numberOfGPUs) {
         numberOfGPUsDropList.click();
-        clickOnElementFromDropList(String.valueOf(data.getNumberOfGPUs()));
+        clickOnElementFromDropList(numberOfGPUs);
         return this;
     }
     
-    public GoogleCloudPricingCalculatorPage chooseLocalSSD(VirtualMachine data) {
+    public GoogleCloudPricingCalculatorPage chooseLocalSSD(String localSSD) {
         this.localSSDDropList.click();
-        clickOnElementFromDropList(data.getLocalSSD());
+        clickOnElementFromDropList(localSSD);
         return this;
     }
     
-    public GoogleCloudPricingCalculatorPage chooseDatacenterLocation(VirtualMachine data) {
+    public GoogleCloudPricingCalculatorPage chooseDatacenterLocation(String datacenterLocation) {
         this.datacenterLocationDropList.click();
         new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_WAITING_TIME_SECONDS)).until(ExpectedConditions
                 .visibilityOfAllElementsLocatedBy(elementsInDropListDatacenterLocationLocator));
         List<WebElement> elementsInDropList = driver.findElements(elementsInDropListDatacenterLocationLocator);
         
         for (WebElement web : elementsInDropList) {
-            if (web.getText().contains(data.getDatacenterLocation())) {
+            if (web.getText().contains(datacenterLocation)) {
                 web.click();
                 break;
             }
@@ -156,9 +156,9 @@ public class GoogleCloudPricingCalculatorPage extends AbstractPage {
         return this;
     }
     
-    public GoogleCloudPricingCalculatorPage chooseCommittedUsage(VirtualMachine data) {
+    public GoogleCloudPricingCalculatorPage chooseCommittedUsage(String committedUsage) {
         this.committedUsageDropList.click();
-        clickOnElementFromDropList(data.getCommittedUsage());
+        clickOnElementFromDropList(committedUsage);
         return this;
     }
     
